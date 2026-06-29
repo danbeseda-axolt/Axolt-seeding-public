@@ -1,29 +1,148 @@
 <!DOCTYPE html>
 <html lang="cs">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Axolt Pilot — Výsledky</title>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" />
-  <style>
-    :root { --cream:#efebe7; --black:#000; --red:#ff333d; }
-    * { box-sizing: border-box; }
-    body { margin:0; background:var(--cream); color:var(--black);
-           font-family:"Open Sans",system-ui,sans-serif; min-height:100vh;
-           display:flex; align-items:center; justify-content:center; padding:32px; }
-    .card { max-width:640px; text-align:center; }
-    h1 { font-family:"Manrope",sans-serif; font-weight:800; font-size:2.4rem; margin:0 0 12px; }
-    .accent { color:var(--red); }
-    p { font-size:1.05rem; line-height:1.6; opacity:.85; }
-    .tag { font-family:"Manrope",sans-serif; font-weight:600; letter-spacing:.12em;
-           text-transform:uppercase; font-size:.78rem; opacity:.6; }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Axolt — Výsledky pilotního programu</title>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+:root{--black:#000;--white:#fff;--cream:#efebe7;--red:#ff333d;--text:#111;--muted:#888;}
+body{font-family:'Manrope',sans-serif;background:var(--cream);color:var(--text);}
+.hero{background:var(--black);color:var(--white);padding:56px 40px 52px;text-align:center;}
+.logo{font-family:Georgia,serif;font-size:30px;letter-spacing:.3px;}
+.logo sup{font-style:italic;font-size:16px;}
+.logo-sub{font-size:10.5px;letter-spacing:2px;text-transform:uppercase;color:#9a9a9a;margin-top:6px;}
+.hero h1{font-size:30px;font-weight:800;letter-spacing:-.8px;margin:26px 0 12px;line-height:1.2;}
+.hero p{font-size:14px;color:#9a9a9a;max-width:520px;margin:0 auto;line-height:1.7;}
+.container{max-width:820px;margin:0 auto;padding:48px 24px;}
+.eyebrow{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--muted);margin-bottom:8px;}
+.section-title{font-size:22px;font-weight:800;letter-spacing:-.5px;margin-bottom:6px;}
+.section-sub{font-size:13px;color:var(--muted);margin-bottom:24px;line-height:1.6;}
+.divider{border:none;border-top:1px solid #ddd;margin:44px 0;}
+.funnel{display:flex;align-items:stretch;gap:0;flex-wrap:wrap;}
+.fstep{flex:1;min-width:120px;background:var(--white);text-align:center;padding:26px 14px;border-radius:14px;margin:4px;}
+.fstep:last-child{background:var(--black);color:var(--white);}
+.fstep .n{font-size:42px;font-weight:900;line-height:1;}
+.fstep .l{font-size:12px;font-weight:700;margin-top:6px;}
+.fstep .s{font-size:11px;color:var(--muted);margin-top:3px;}
+.fstep:last-child .s{color:#888;}
+.legend{display:flex;gap:18px;margin:6px 0 22px;flex-wrap:wrap;}
+.leg{display:flex;align-items:center;gap:7px;font-size:11px;color:var(--muted);}
+.sw{width:26px;height:8px;border-radius:4px;}
+.srow{display:flex;align-items:center;margin-bottom:16px;}
+.slabel{font-size:13px;font-weight:700;width:170px;flex-shrink:0;}
+.sbars{flex:1;}
+.bg{display:flex;align-items:center;gap:6px;margin-bottom:4px;}
+.track{flex:1;height:11px;background:#e7e1da;border-radius:6px;overflow:hidden;}
+.fill{height:100%;border-radius:6px;}
+.v{font-size:11px;font-weight:700;width:26px;text-align:right;}
+.sdelta{font-size:13px;font-weight:900;width:46px;text-align:right;color:#1a8f4c;}
+.pills{display:flex;gap:12px;flex-wrap:wrap;margin:8px 0 4px;}
+.pill{background:var(--white);border-radius:12px;padding:18px 20px;flex:1;min-width:150px;}
+.pill .num{font-size:30px;font-weight:900;line-height:1;}
+.pill .lbl{font-size:11px;color:var(--muted);margin-top:4px;}
+.tags{margin-top:8px;}
+.tag{display:inline-block;background:#e7e1da;border-radius:20px;padding:6px 14px;font-size:12px;font-weight:600;margin:4px;color:#333;}
+.tag.top{background:var(--black);color:var(--white);}
+.footer{background:var(--black);color:#666;text-align:center;padding:30px;font-size:11px;line-height:1.8;}
+.footer strong{color:#999;}
+</style>
 </head>
 <body>
-  <main class="card">
-    <div class="tag">Axolt · Pilot ČR</div>
-    <h1>Výsledky pilotu <span class="accent">brzy</span></h1>
-    <p>Tahle stránka bude zobrazovat anonymizované souhrnné výsledky pilotní studie Axolt — průměry napříč šesti oblastmi, NPS a průběh studie. Aktualizuje se automaticky každý den.</p>
-  </main>
+<div class="hero">
+  <div class="logo">a<sup>x</sup>olt</div>
+  <div class="logo-sub">Scientific Brain Nutrition</div>
+  <h1>Výsledky pilotního programu</h1>
+  <p>30denní pilotní studie v České republice a na Slovensku. Níže jsou souhrnné, anonymizované výsledky účastníků, kteří dokončili celý program. Jde o subjektivní sebehodnocení, ne o klinická data.</p>
+</div>
+
+<div class="container">
+
+  <div class="eyebrow">Průběh studie</div>
+  <div class="section-title">Od přihlášení k dokončení</div>
+  <div class="section-sub">Cesta účastníků třiceti dny pilotu.</div>
+  <div class="funnel">
+    <div class="fstep"><div class="n">41</div><div class="l">Přihlášených</div><div class="s">vstupní dotazník</div></div>
+    <div class="fstep"><div class="n">25</div><div class="l">Den 14</div><div class="s">vyplnili průběžný dotazník</div></div>
+    <div class="fstep"><div class="n">18</div><div class="l">Den 30</div><div class="s">dokončili celý program</div></div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="eyebrow">Změna v šesti oblastech · n = 18</div>
+  <div class="section-title">Jak se posunulo sebehodnocení</div>
+  <div class="section-sub">Průměr účastníků na stupnici 0–10, ve třech bodech: den 0, den 14, den 30.</div>
+  <div class="legend">
+    <div class="leg"><span class="sw" style="background:#d1d5db"></span>Den 0</div>
+    <div class="leg"><span class="sw" style="background:#888"></span>Den 14</div>
+    <div class="leg"><span class="sw" style="background:#000"></span>Den 30</div>
+  </div>
+
+  <div class="srow"><div class="slabel">Mentální jasnost</div><div class="sbars">
+    <div class="bg"><div class="track"><div class="fill" style="width:60%;background:#d1d5db"></div></div><span class="v" style="color:#aaa">6,0</span></div>
+    <div class="bg"><div class="track"><div class="fill" style="width:73%;background:#888"></div></div><span class="v" style="color:#666">7,3</span></div>
+    <div class="bg"><div class="track"><div class="fill" style="width:77%;background:#000"></div></div><span class="v">7,7</span></div>
+  </div><div class="sdelta">+1,7</div></div>
+
+  <div class="srow"><div class="slabel">Energie</div><div class="sbars">
+    <div class="bg"><div class="track"><div class="fill" style="width:56%;background:#d1d5db"></div></div><span class="v" style="color:#aaa">5,6</span></div>
+    <div class="bg"><div class="track"><div class="fill" style="width:66%;background:#888"></div></div><span class="v" style="color:#666">6,6</span></div>
+    <div class="bg"><div class="track"><div class="fill" style="width:72%;background:#000"></div></div><span class="v">7,2</span></div>
+  </div><div class="sdelta">+1,6</div></div>
+
+  <div class="srow"><div class="slabel">Soustředění</div><div class="sbars">
+    <div class="bg"><div class="track"><div class="fill" style="width:62%;background:#d1d5db"></div></div><span class="v" style="color:#aaa">6,2</span></div>
+    <div class="bg"><div class="track"><div class="fill" style="width:71%;background:#888"></div></div><span class="v" style="color:#666">7,1</span></div>
+    <div class="bg"><div class="track"><div class="fill" style="width:76%;background:#000"></div></div><span class="v">7,6</span></div>
+  </div><div class="sdelta">+1,4</div></div>
+
+  <div class="srow"><div class="slabel">Nálada a pohoda</div><div class="sbars">
+    <div class="bg"><div class="track"><div class="fill" style="width:64%;background:#d1d5db"></div></div><span class="v" style="color:#aaa">6,4</span></div>
+    <div class="bg"><div class="track"><div class="fill" style="width:72%;background:#888"></div></div><span class="v" style="color:#666">7,2</span></div>
+    <div class="bg"><div class="track"><div class="fill" style="width:71%;background:#000"></div></div><span class="v">7,1</span></div>
+  </div><div class="sdelta">+0,7</div></div>
+
+  <div class="srow"><div class="slabel">Kvalita spánku</div><div class="sbars">
+    <div class="bg"><div class="track"><div class="fill" style="width:66%;background:#d1d5db"></div></div><span class="v" style="color:#aaa">6,6</span></div>
+    <div class="bg"><div class="track"><div class="fill" style="width:68%;background:#888"></div></div><span class="v" style="color:#666">6,8</span></div>
+    <div class="bg"><div class="track"><div class="fill" style="width:72%;background:#000"></div></div><span class="v">7,2</span></div>
+  </div><div class="sdelta">+0,6</div></div>
+
+  <div class="srow"><div class="slabel">Zvládání stresu</div><div class="sbars">
+    <div class="bg"><div class="track"><div class="fill" style="width:70%;background:#d1d5db"></div></div><span class="v" style="color:#aaa">7,0</span></div>
+    <div class="bg"><div class="track"><div class="fill" style="width:74%;background:#888"></div></div><span class="v" style="color:#666">7,4</span></div>
+    <div class="bg"><div class="track"><div class="fill" style="width:75%;background:#000"></div></div><span class="v">7,5</span></div>
+  </div><div class="sdelta">+0,5</div></div>
+
+  <hr class="divider">
+
+  <div class="eyebrow">Souhrn</div>
+  <div class="section-title">Pilot v číslech</div>
+  <div class="section-sub">&nbsp;</div>
+  <div class="pills">
+    <div class="pill"><div class="num">+17&nbsp;%</div><div class="lbl">celkové zlepšení sebehodnocení (6,3 → 7,4)</div></div>
+    <div class="pill"><div class="num">72&nbsp;%</div><div class="lbl">zlepšilo mentální jasnost i energii</div></div>
+    <div class="pill"><div class="num">6,7/10</div><div class="lbl">průměrné hodnocení produktu</div></div>
+    <div class="pill"><div class="num">18</div><div class="lbl">dokončilo celých 30 dní</div></div>
+  </div>
+
+  <div class="tags">
+    <span class="tag top">Mentální jasnost +1,7</span>
+    <span class="tag top">Energie +1,6</span>
+    <span class="tag top">Soustředění +1,4</span>
+    <span class="tag">Nálada +0,7</span>
+    <span class="tag">Spánek +0,6</span>
+    <span class="tag">Zvládání stresu +0,5</span>
+  </div>
+
+</div>
+
+<div class="footer">
+  <strong>Axolt — Scientific Brain Nutrition</strong><br>
+  Souhrnné anonymizované výsledky pilotního programu ČR/SR 2026 · 47 účinných látek<br>
+  Vychází ze sebehodnocení účastníků (den 0 / 14 / 30); neslouží jako lékařské ani klinické hodnocení.<br>
+  <a href="https://axoltbrain.com" style="color:#888">axoltbrain.com</a>
+</div>
 </body>
 </html>
