@@ -43,6 +43,13 @@ body{font-family:'Manrope',sans-serif;background:var(--cream);color:var(--text);
 .dot0{width:11px;height:11px;border-radius:50%;border:2px solid #999;background:var(--cream);display:inline-block;}
 .dot30{width:11px;height:11px;border-radius:50%;background:var(--red);display:inline-block;}
 .note{font-size:11.5px;color:#666;line-height:1.6;margin-top:16px;background:#fff;border-radius:10px;padding:14px 16px;}
+.hi3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-top:16px;}
+.hibox{background:var(--white);border-radius:14px;padding:20px 18px;}
+.hibox .pct{font-size:34px;font-weight:900;color:var(--green);line-height:1;}
+.hibox .lab{font-size:14px;font-weight:800;margin-top:8px;}
+.hibox .desc{font-size:12px;color:#555;margin-top:5px;line-height:1.45;}
+.hibox .meta{font-size:11px;color:var(--muted);margin-top:9px;padding-top:8px;border-top:1px solid #eee;}
+@media(max-width:680px){.hi3{grid-template-columns:1fr;}}
 .feel{background:var(--black);color:var(--white);border-radius:16px;padding:30px 30px;}
 .feel h3{font-size:19px;font-weight:800;margin-bottom:10px;}
 .feel .big{font-size:44px;font-weight:900;line-height:1;color:#fff;}
@@ -170,6 +177,11 @@ body{font-family:'Manrope',sans-serif;background:var(--cream);color:var(--text);
         <text x="392.5" y="246" font-size="11" fill="#999" text-anchor="middle">7,0</text><text x="421.5" y="246" font-size="12" font-weight="800" fill="#000" text-anchor="middle">7,4</text>
         <text x="640" y="262" font-size="15" font-weight="800" fill="#555">+0,4</text></g>
     </svg>
+  </div>
+  <div class="hi3">
+    <div class="hibox"><div class="pct">+26 %</div><div class="lab">Mentální jasnost</div><div class="desc">Méně mozkové mlhy, jasnější myšlení.</div><div class="meta">zlepšilo 74 % účastníků · p&lt;0,001</div></div>
+    <div class="hibox"><div class="pct">+25 %</div><div class="lab">Energie</div><div class="desc">Více energie během dne, méně únavy.</div><div class="meta">zlepšilo 68 % účastníků · p&lt;0,01</div></div>
+    <div class="hibox"><div class="pct">+24 %</div><div class="lab">Soustředění</div><div class="desc">Ostřejší koncentrace při práci.</div><div class="meta">zlepšilo 68 % účastníků · p&lt;0,001</div></div>
   </div>
   <div class="note"><span style="color:#1a8f4c">&#9733;</span> U <strong>mentální jasnosti, soustředění a energie</strong> je zlepšení statisticky významné (párový t-test den 0 vs. den 30, p &lt; 0,05, velký efekt). Nálada, spánek a stres se posunuly méně — a právě u nich je 30 dní pravděpodobně příliš krátká doba.</div>
 
