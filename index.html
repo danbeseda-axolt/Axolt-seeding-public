@@ -33,27 +33,33 @@ body{font-family:'Manrope',sans-serif;background:var(--cream);color:var(--text);
 .callout .hi{color:var(--red);font-weight:700;}
 .chartcard{background:var(--white);border-radius:16px;padding:22px 24px;}
 .chip{display:inline-block;background:#eafaf0;color:var(--green);font-size:11px;font-weight:700;border-radius:20px;padding:4px 12px;margin-top:12px;}
-.legend{display:flex;gap:18px;margin:6px 0 22px;flex-wrap:wrap;}
-.leg{display:flex;align-items:center;gap:7px;font-size:11px;color:var(--muted);}
-.sw{width:26px;height:8px;border-radius:4px;}
-.srow{display:flex;align-items:center;margin-bottom:16px;}
-.slabel{font-size:13px;font-weight:700;width:170px;flex-shrink:0;}
-.sbars{flex:1;}
-.bg{display:flex;align-items:center;gap:6px;margin-bottom:4px;}
-.track{flex:1;height:11px;background:#e7e1da;border-radius:6px;overflow:hidden;}
-.fill{height:100%;border-radius:6px;}
-.v{font-size:11px;font-weight:700;width:26px;text-align:right;}
-.sdelta{font-size:13px;font-weight:900;width:46px;text-align:right;color:var(--green);}
+.mlegend{display:flex;gap:18px;margin:2px 0 18px;flex-wrap:wrap;}
+.ml{display:flex;align-items:center;gap:7px;font-size:11px;color:var(--muted);}
+.mk{width:20px;height:0;border-top:2.5px solid;}
+.mgrid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;}
+.mcard{background:var(--white);border-radius:14px;padding:16px 18px;}
+.mtop{display:flex;justify-content:space-between;align-items:baseline;}
+.mlabel{font-size:13px;font-weight:700;}
+.mdelta{font-size:15px;font-weight:900;color:var(--green);}
+.mfoot{font-size:11px;color:var(--muted);margin-top:6px;}
 .note{font-size:11.5px;color:#666;line-height:1.6;margin-top:18px;background:#fff;border-radius:10px;padding:14px 16px;}
 .feel{background:var(--black);color:var(--white);border-radius:16px;padding:30px 30px;}
 .feel h3{font-size:19px;font-weight:800;margin-bottom:10px;}
 .feel .big{font-size:44px;font-weight:900;line-height:1;color:#fff;}
 .feel .big span{font-size:18px;color:#9a9a9a;font-weight:700;}
 .feel p{font-size:13.5px;color:#c8c8c8;line-height:1.7;margin-top:12px;}
+.feel .fnote{font-size:12px;color:#8f8f8f;line-height:1.6;margin-top:14px;padding-top:12px;border-top:1px solid #333;}
 .quotes{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;}
 .quote{background:var(--white);border-radius:14px;padding:20px 20px;}
 .quote blockquote{font-size:13.5px;font-style:italic;color:#222;line-height:1.6;}
 .quote .attr{font-size:11px;color:var(--muted);font-weight:700;margin-top:12px;letter-spacing:.3px;}
+.fb{background:var(--white);border-radius:14px;padding:20px 22px;margin-bottom:14px;}
+.fb .h{font-size:15px;font-weight:800;margin-bottom:10px;}
+.fb .r{display:flex;gap:10px;margin-bottom:7px;font-size:12.5px;line-height:1.55;}
+.fb .tagx{flex:0 0 96px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);padding-top:2px;}
+.fb .r.fix .tagx{color:var(--green);}
+.fb .body{flex:1;color:#333;}
+.fb .body i{color:#555;}
 .pills{display:flex;gap:12px;flex-wrap:wrap;}
 .pill{background:var(--white);border-radius:12px;padding:18px 20px;flex:1;min-width:150px;}
 .pill .num{font-size:30px;font-weight:900;line-height:1;}
@@ -65,7 +71,7 @@ body{font-family:'Manrope',sans-serif;background:var(--cream);color:var(--text);
 .method strong{color:#111;}
 .footer{background:var(--black);color:#666;text-align:center;padding:30px;font-size:11px;line-height:1.8;}
 .footer strong{color:#999;}
-@media(max-width:640px){.quotes{grid-template-columns:1fr;}}
+@media(max-width:680px){.quotes,.mgrid{grid-template-columns:1fr;}}
 </style>
 </head>
 <body>
@@ -111,28 +117,46 @@ body{font-family:'Manrope',sans-serif;background:var(--cream);color:var(--text);
 
   <hr class="divider">
 
-  <div class="eyebrow">Změna v šesti oblastech · n = 18</div>
-  <div class="section-title">Jak se posunulo sebehodnocení</div>
-  <div class="section-sub">Průměr účastníků na stupnici 0–10, ve třech bodech: den 0, den 14, den 30.</div>
-  <div class="legend">
-    <div class="leg"><span class="sw" style="background:#d1d5db"></span>Den 0</div>
-    <div class="leg"><span class="sw" style="background:#888"></span>Den 14</div>
-    <div class="leg"><span class="sw" style="background:#000"></span>Den 30</div>
+  <div class="eyebrow">Šest oblastí · n = 18</div>
+  <div class="section-title">Vývoj po oblastech</div>
+  <div class="section-sub">Průměr účastníků ve třech bodech — den 0 → 14 → 30.</div>
+  <div class="mlegend"><div class="ml"><span class="mk" style="border-color:#000"></span>Průměr účastníků (den 0 → 30)</div></div>
+  <div class="mgrid">
+
+    <div class="mcard"><div class="mtop"><span class="mlabel">Mentální jasnost <span style="color:#1a8f4c">&#9733;</span></span><span class="mdelta">+1,7</span></div>
+      <svg width="100%" height="46" viewBox="0 0 140 50"><polyline fill="none" stroke="#000" stroke-width="1.6" points="15,22.8 70,18.0 125,16.5"/><circle cx="15" cy="22.8" r="3" fill="#efebe7" stroke="#000"/><circle cx="70" cy="18.0" r="3" fill="#efebe7" stroke="#000"/><circle cx="125" cy="16.5" r="3.6" fill="#ff333d"/></svg>
+      <div class="mfoot">6,0 &rsaquo; 7,3 &rsaquo; 7,7</div></div>
+
+    <div class="mcard"><div class="mtop"><span class="mlabel">Energie <span style="color:#1a8f4c">&#9733;</span></span><span class="mdelta">+1,6</span></div>
+      <svg width="100%" height="46" viewBox="0 0 140 50"><polyline fill="none" stroke="#000" stroke-width="1.6" points="15,24.3 70,20.6 125,18.4"/><circle cx="15" cy="24.3" r="3" fill="#efebe7" stroke="#000"/><circle cx="70" cy="20.6" r="3" fill="#efebe7" stroke="#000"/><circle cx="125" cy="18.4" r="3.6" fill="#ff333d"/></svg>
+      <div class="mfoot">5,6 &rsaquo; 6,6 &rsaquo; 7,2</div></div>
+
+    <div class="mcard"><div class="mtop"><span class="mlabel">Soustředění <span style="color:#1a8f4c">&#9733;</span></span><span class="mdelta">+1,4</span></div>
+      <svg width="100%" height="46" viewBox="0 0 140 50"><polyline fill="none" stroke="#000" stroke-width="1.6" points="15,22.1 70,18.7 125,16.9"/><circle cx="15" cy="22.1" r="3" fill="#efebe7" stroke="#000"/><circle cx="70" cy="18.7" r="3" fill="#efebe7" stroke="#000"/><circle cx="125" cy="16.9" r="3.6" fill="#ff333d"/></svg>
+      <div class="mfoot">6,2 &rsaquo; 7,1 &rsaquo; 7,6</div></div>
+
+    <div class="mcard"><div class="mtop"><span class="mlabel">Nálada a pohoda</span><span class="mdelta">+0,7</span></div>
+      <svg width="100%" height="46" viewBox="0 0 140 50"><polyline fill="none" stroke="#000" stroke-width="1.6" points="15,21.3 70,18.4 125,18.7"/><circle cx="15" cy="21.3" r="3" fill="#efebe7" stroke="#000"/><circle cx="70" cy="18.4" r="3" fill="#efebe7" stroke="#000"/><circle cx="125" cy="18.7" r="3.6" fill="#ff333d"/></svg>
+      <div class="mfoot">6,4 &rsaquo; 7,2 &rsaquo; 7,1</div></div>
+
+    <div class="mcard"><div class="mtop"><span class="mlabel">Kvalita spánku</span><span class="mdelta">+0,6</span></div>
+      <svg width="100%" height="46" viewBox="0 0 140 50"><polyline fill="none" stroke="#000" stroke-width="1.6" points="15,20.6 70,19.8 125,18.4"/><circle cx="15" cy="20.6" r="3" fill="#efebe7" stroke="#000"/><circle cx="70" cy="19.8" r="3" fill="#efebe7" stroke="#000"/><circle cx="125" cy="18.4" r="3.6" fill="#ff333d"/></svg>
+      <div class="mfoot">6,6 &rsaquo; 6,8 &rsaquo; 7,2</div></div>
+
+    <div class="mcard"><div class="mtop"><span class="mlabel">Zvládání stresu</span><span class="mdelta">+0,5</span></div>
+      <svg width="100%" height="46" viewBox="0 0 140 50"><polyline fill="none" stroke="#000" stroke-width="1.6" points="15,19.1 70,17.6 125,17.3"/><circle cx="15" cy="19.1" r="3" fill="#efebe7" stroke="#000"/><circle cx="70" cy="17.6" r="3" fill="#efebe7" stroke="#000"/><circle cx="125" cy="17.3" r="3.6" fill="#ff333d"/></svg>
+      <div class="mfoot">7,0 &rsaquo; 7,4 &rsaquo; 7,5</div></div>
+
   </div>
-  <div class="srow"><div class="slabel">Mentální jasnost <span style="color:#1a8f4c">&#9733;</span></div><div class="sbars"><div class="bg"><div class="track"><div class="fill" style="width:60%;background:#d1d5db"></div></div><span class="v" style="color:#aaa">6,0</span></div><div class="bg"><div class="track"><div class="fill" style="width:73%;background:#888"></div></div><span class="v" style="color:#666">7,3</span></div><div class="bg"><div class="track"><div class="fill" style="width:77%;background:#000"></div></div><span class="v">7,7</span></div></div><div class="sdelta">+1,7</div></div>
-  <div class="srow"><div class="slabel">Energie <span style="color:#1a8f4c">&#9733;</span></div><div class="sbars"><div class="bg"><div class="track"><div class="fill" style="width:56%;background:#d1d5db"></div></div><span class="v" style="color:#aaa">5,6</span></div><div class="bg"><div class="track"><div class="fill" style="width:66%;background:#888"></div></div><span class="v" style="color:#666">6,6</span></div><div class="bg"><div class="track"><div class="fill" style="width:72%;background:#000"></div></div><span class="v">7,2</span></div></div><div class="sdelta">+1,6</div></div>
-  <div class="srow"><div class="slabel">Soustředění <span style="color:#1a8f4c">&#9733;</span></div><div class="sbars"><div class="bg"><div class="track"><div class="fill" style="width:62%;background:#d1d5db"></div></div><span class="v" style="color:#aaa">6,2</span></div><div class="bg"><div class="track"><div class="fill" style="width:71%;background:#888"></div></div><span class="v" style="color:#666">7,1</span></div><div class="bg"><div class="track"><div class="fill" style="width:76%;background:#000"></div></div><span class="v">7,6</span></div></div><div class="sdelta">+1,4</div></div>
-  <div class="srow"><div class="slabel">Nálada a pohoda</div><div class="sbars"><div class="bg"><div class="track"><div class="fill" style="width:64%;background:#d1d5db"></div></div><span class="v" style="color:#aaa">6,4</span></div><div class="bg"><div class="track"><div class="fill" style="width:72%;background:#888"></div></div><span class="v" style="color:#666">7,2</span></div><div class="bg"><div class="track"><div class="fill" style="width:71%;background:#000"></div></div><span class="v">7,1</span></div></div><div class="sdelta">+0,7</div></div>
-  <div class="srow"><div class="slabel">Kvalita spánku</div><div class="sbars"><div class="bg"><div class="track"><div class="fill" style="width:66%;background:#d1d5db"></div></div><span class="v" style="color:#aaa">6,6</span></div><div class="bg"><div class="track"><div class="fill" style="width:68%;background:#888"></div></div><span class="v" style="color:#666">6,8</span></div><div class="bg"><div class="track"><div class="fill" style="width:72%;background:#000"></div></div><span class="v">7,2</span></div></div><div class="sdelta">+0,6</div></div>
-  <div class="srow"><div class="slabel">Zvládání stresu</div><div class="sbars"><div class="bg"><div class="track"><div class="fill" style="width:70%;background:#d1d5db"></div></div><span class="v" style="color:#aaa">7,0</span></div><div class="bg"><div class="track"><div class="fill" style="width:74%;background:#888"></div></div><span class="v" style="color:#666">7,4</span></div><div class="bg"><div class="track"><div class="fill" style="width:75%;background:#000"></div></div><span class="v">7,5</span></div></div><div class="sdelta">+0,5</div></div>
-  <div class="note"><span style="color:#1a8f4c">&#9733;</span> U <strong>mentální jasnosti, soustředění a energie</strong> je zlepšení statisticky významné (párový t-test den 0 vs. den 30, p &lt; 0,05, velký efekt). Nálada, spánek a stres se u této skupiny posunuly méně — a právě u nich je 30 dní pravděpodobně příliš krátká doba (viz výše).</div>
+  <div class="note"><span style="color:#1a8f4c">&#9733;</span> U <strong>mentální jasnosti, soustředění a energie</strong> je zlepšení statisticky významné (párový t-test den 0 vs. den 30, p &lt; 0,05, velký efekt). Nálada, spánek a stres se u této skupiny posunuly méně — a právě u nich je 30 dní pravděpodobně příliš krátká doba.</div>
 
   <hr class="divider">
 
   <div class="feel">
     <h3>Změna, kterou nemusíš cítit</h3>
     <div class="big">16<span> z 18</span></div>
-    <p>Zlepšení bývá pozvolné — ze dne na den ho člověk často nevnímá. Přesto se při přímém srovnání den 0 vs. den 30 posunulo sebehodnocení nahoru u <strong style="color:#fff">16 z 18 účastníků</strong>. Někteří, kdo sami neměli pocit velké změny, měli měřitelně lepší skóre v soustředění a jasnosti. Čísla vidí to, co pocit občas přehlédne.</p>
+    <p>Zlepšení bývá pozvolné — ze dne na den ho člověk často nevnímá. Přesto se při přímém srovnání den 0 vs. den 30 posunulo sebehodnocení nahoru u <strong style="color:#fff">16 z 18 účastníků</strong>. Někteří, kdo sami neměli pocit velké změny, měli měřitelně lepší skóre v soustředění a jasnosti.</p>
+    <div class="fnote">Na rovinu: jde o subjektivní sebehodnocení účastníků z dotazníku, ne o klinické měření. Právě proto je ale zajímavý signál, že se čísla posunula — i bez toho, aby byla změna vždy na první pohled cítit.</div>
   </div>
 
   <hr class="divider">
@@ -144,6 +168,26 @@ body{font-family:'Manrope',sans-serif;background:var(--cream);color:var(--text);
     <div class="quote"><blockquote>"Doporučila jsem ho vyzkoušet dvěma kolegyním — přesně na tohle funguje."</blockquote><div class="attr">— Blanka K. · den 30</div></div>
     <div class="quote"><blockquote>"Zdravá náhrada kávy, která tě pravidelným užíváním může dostat na konstantně super level."</blockquote><div class="attr">— Kristýna S. · den 30</div></div>
     <div class="quote"><blockquote>"Sama jsem cítila zlepšení hlavně v energii po ránu."</blockquote><div class="attr">— Eva D. · den 30</div></div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="eyebrow">Zpětná vazba</div>
+  <div class="section-title">Co jsme se od vás dozvěděli</div>
+  <div class="section-sub">Nebráníme se ani kritice — tady je, co nejčastěji zaznělo, proč to tak je a co s tím.</div>
+
+  <div class="fb">
+    <div class="h">Zažívání — nafouknutí, časté záchody</div>
+    <div class="r"><div class="tagx">Zaznělo</div><div class="body"><i>„Po pár dnech nafouknutí a častější návštěvy toalety."</i> — několik účastníků, u části i důvod, proč Axolt vysadili.</div></div>
+    <div class="r"><div class="tagx">Proč</div><div class="body">Axolt obsahuje 3 g prebiotické vlákniny, která záměrně živí střevní mikrobiom (osa střevo–mozek). Při vyšším příjmu prebiotik je běžné, že střevo první dny až týdny reaguje, než si zvykne. Roli může hrát i hořčík.</div></div>
+    <div class="r fix"><div class="tagx">Jak na to</div><div class="body">Užívat <strong>po jídle</strong>, dostatečně pít a první dny klidně menší dávku. U většiny to odezní; pokud potíže přetrvávají nebo jsou silné, produkt nemusí sednout každému — a to je v pořádku.</div></div>
+  </div>
+
+  <div class="fb">
+    <div class="h">Rozpustnost — zelený zákal na dně</div>
+    <div class="r"><div class="tagx">Zaznělo</div><div class="body"><i>„Prášek se úplně nerozpustí, na dně zůstává zelená složka."</i></div></div>
+    <div class="r"><div class="tagx">Proč</div><div class="body">Jsou to přírodní rostlinné extrakty bez umělých rozpouštědel — v tvrdé nebo studené vodě se rozpouští hůř.</div></div>
+    <div class="r fix"><div class="tagx">Jak na to</div><div class="body">Rozmíchat ve větším množství <strong>vlažné</strong> vody nebo protřepat v šejkru; usazeninu na konci stačí znovu zalít a dopít.</div></div>
   </div>
 
   <hr class="divider">
