@@ -27,22 +27,22 @@ body{font-family:'Manrope',sans-serif;background:var(--cream);color:var(--text);
 .fstep .l{font-size:12px;font-weight:700;margin-top:6px;}
 .fstep .s{font-size:11px;color:var(--muted);margin-top:3px;}
 .fstep:last-child .s{color:#888;}
+.demo{display:flex;gap:12px;flex-wrap:wrap;margin-top:4px;}
+.demo-item{flex:1;min-width:150px;background:var(--white);border-radius:12px;padding:16px 18px;}
+.demo .dn{font-size:23px;font-weight:900;line-height:1.05;}
+.demo .dn.sm{font-size:15px;}
+.demo .dl{font-size:11px;color:var(--muted);margin-top:5px;line-height:1.4;}
 .callout{background:var(--white);border-radius:16px;padding:26px 28px;margin-top:22px;border-left:4px solid var(--red);}
 .callout h3{font-size:17px;font-weight:800;margin-bottom:8px;}
 .callout p{font-size:13.5px;color:#333;line-height:1.7;}
 .callout .hi{color:var(--red);font-weight:700;}
-.chartcard{background:var(--white);border-radius:16px;padding:22px 24px;}
+.chartcard{background:var(--white);border-radius:16px;padding:20px 22px;}
 .chip{display:inline-block;background:#eafaf0;color:var(--green);font-size:11px;font-weight:700;border-radius:20px;padding:4px 12px;margin-top:12px;}
-.mlegend{display:flex;gap:18px;margin:2px 0 18px;flex-wrap:wrap;}
+.mlegend{display:flex;gap:18px;margin:2px 0 14px;flex-wrap:wrap;}
 .ml{display:flex;align-items:center;gap:7px;font-size:11px;color:var(--muted);}
-.mk{width:20px;height:0;border-top:2.5px solid;}
-.mgrid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;}
-.mcard{background:var(--white);border-radius:14px;padding:16px 18px;}
-.mtop{display:flex;justify-content:space-between;align-items:baseline;}
-.mlabel{font-size:13px;font-weight:700;}
-.mdelta{font-size:15px;font-weight:900;color:var(--green);}
-.mfoot{font-size:11px;color:var(--muted);margin-top:6px;}
-.note{font-size:11.5px;color:#666;line-height:1.6;margin-top:18px;background:#fff;border-radius:10px;padding:14px 16px;}
+.dot0{width:11px;height:11px;border-radius:50%;border:2px solid #999;background:var(--cream);display:inline-block;}
+.dot30{width:11px;height:11px;border-radius:50%;background:var(--red);display:inline-block;}
+.note{font-size:11.5px;color:#666;line-height:1.6;margin-top:16px;background:#fff;border-radius:10px;padding:14px 16px;}
 .feel{background:var(--black);color:var(--white);border-radius:16px;padding:30px 30px;}
 .feel h3{font-size:19px;font-weight:800;margin-bottom:10px;}
 .feel .big{font-size:44px;font-weight:900;line-height:1;color:#fff;}
@@ -71,7 +71,7 @@ body{font-family:'Manrope',sans-serif;background:var(--cream);color:var(--text);
 .method strong{color:#111;}
 .footer{background:var(--black);color:#666;text-align:center;padding:30px;font-size:11px;line-height:1.8;}
 .footer strong{color:#999;}
-@media(max-width:680px){.quotes,.mgrid{grid-template-columns:1fr;}}
+@media(max-width:680px){.quotes{grid-template-columns:1fr;}}
 </style>
 </head>
 <body>
@@ -91,6 +91,14 @@ body{font-family:'Manrope',sans-serif;background:var(--cream);color:var(--text);
     <div class="fstep"><div class="n">41</div><div class="l">Přihlášených</div><div class="s">vstupní dotazník</div></div>
     <div class="fstep"><div class="n">25</div><div class="l">Den 14</div><div class="s">průběžný dotazník</div></div>
     <div class="fstep"><div class="n">18</div><div class="l">Den 30</div><div class="s">dokončili program</div></div>
+  </div>
+
+  <div class="eyebrow" style="margin-top:26px">Kdo se zúčastnil · dokončilo 18</div>
+  <div class="demo">
+    <div class="demo-item"><div class="dn">12&nbsp;/&nbsp;6</div><div class="dl">žen / mužů (67 % / 33 %)</div></div>
+    <div class="demo-item"><div class="dn">78&nbsp;%</div><div class="dl">ve věku 25–44 let</div></div>
+    <div class="demo-item"><div class="dn">18–54</div><div class="dl">věkový rozsah (let)</div></div>
+    <div class="demo-item"><div class="dn sm">Profesionálové</div><div class="dl">zakladatelé · konzultanti · tech · zdravotníci · kreativci</div></div>
   </div>
 
   <div class="callout">
@@ -118,37 +126,52 @@ body{font-family:'Manrope',sans-serif;background:var(--cream);color:var(--text);
   <hr class="divider">
 
   <div class="eyebrow">Šest oblastí · n = 18</div>
-  <div class="section-title">Vývoj po oblastech</div>
-  <div class="section-sub">Průměr účastníků ve třech bodech — den 0 → 14 → 30.</div>
-  <div class="mlegend"><div class="ml"><span class="mk" style="border-color:#000"></span>Průměr účastníků (den 0 → 30)</div></div>
-  <div class="mgrid">
+  <div class="section-title">Posun po oblastech — den 0 → den 30</div>
+  <div class="section-sub">Kde každá oblast začínala a kam se dostala, na společné škále 0–10. Delší úsek = větší posun.</div>
+  <div class="mlegend"><div class="ml"><span class="dot0"></span>Den 0</div><div class="ml"><span class="dot30"></span>Den 30</div><div class="ml"><span style="color:#1a8f4c">&#9733;</span>statisticky významné</div></div>
+  <div class="chartcard">
+    <svg viewBox="0 0 720 330" width="100%" height="330" role="img" aria-label="Posun průměru u šesti oblastí z dne 0 na den 30 na škále 0 až 10">
+      <g stroke="#eceae3" stroke-width="1"><line x1="175" y1="34" x2="175" y2="288"/><line x1="320" y1="34" x2="320" y2="288"/><line x1="465" y1="34" x2="465" y2="288"/><line x1="610" y1="34" x2="610" y2="288"/></g>
+      <g fill="#b3b3b3" font-family="Manrope" font-size="12" text-anchor="middle"><text x="175" y="308">4</text><text x="320" y="308">6</text><text x="465" y="308">8</text><text x="610" y="308">10</text></g>
 
-    <div class="mcard"><div class="mtop"><span class="mlabel">Mentální jasnost <span style="color:#1a8f4c">&#9733;</span></span><span class="mdelta">+1,7</span></div>
-      <svg width="100%" height="46" viewBox="0 0 140 50"><polyline fill="none" stroke="#000" stroke-width="1.6" points="15,22.8 70,18.0 125,16.5"/><circle cx="15" cy="22.8" r="3" fill="#efebe7" stroke="#000"/><circle cx="70" cy="18.0" r="3" fill="#efebe7" stroke="#000"/><circle cx="125" cy="16.5" r="3.6" fill="#ff333d"/></svg>
-      <div class="mfoot">6,0 &rsaquo; 7,3 &rsaquo; 7,7</div></div>
+      <g font-family="Manrope"><text x="8" y="62" font-size="13" font-weight="700" fill="#111">Mentální jasnost <tspan fill="#1a8f4c">&#9733;</tspan></text>
+        <line x1="320" y1="58" x2="443.3" y2="58" stroke="#cfcabf" stroke-width="4" stroke-linecap="round"/>
+        <circle cx="320" cy="58" r="5.5" fill="#efebe7" stroke="#999" stroke-width="1.5"/><circle cx="443.3" cy="58" r="6.5" fill="#ff333d"/>
+        <text x="320" y="46" font-size="11" fill="#999" text-anchor="middle">6,0</text><text x="443.3" y="46" font-size="12" font-weight="800" fill="#000" text-anchor="middle">7,7</text>
+        <text x="640" y="62" font-size="15" font-weight="800" fill="#1a8f4c">+1,7</text></g>
 
-    <div class="mcard"><div class="mtop"><span class="mlabel">Energie <span style="color:#1a8f4c">&#9733;</span></span><span class="mdelta">+1,6</span></div>
-      <svg width="100%" height="46" viewBox="0 0 140 50"><polyline fill="none" stroke="#000" stroke-width="1.6" points="15,24.3 70,20.6 125,18.4"/><circle cx="15" cy="24.3" r="3" fill="#efebe7" stroke="#000"/><circle cx="70" cy="20.6" r="3" fill="#efebe7" stroke="#000"/><circle cx="125" cy="18.4" r="3.6" fill="#ff333d"/></svg>
-      <div class="mfoot">5,6 &rsaquo; 6,6 &rsaquo; 7,2</div></div>
+      <g font-family="Manrope"><text x="8" y="102" font-size="13" font-weight="700" fill="#111">Energie <tspan fill="#1a8f4c">&#9733;</tspan></text>
+        <line x1="291" y1="98" x2="407" y2="98" stroke="#cfcabf" stroke-width="4" stroke-linecap="round"/>
+        <circle cx="291" cy="98" r="5.5" fill="#efebe7" stroke="#999" stroke-width="1.5"/><circle cx="407" cy="98" r="6.5" fill="#ff333d"/>
+        <text x="291" y="86" font-size="11" fill="#999" text-anchor="middle">5,6</text><text x="407" y="86" font-size="12" font-weight="800" fill="#000" text-anchor="middle">7,2</text>
+        <text x="640" y="102" font-size="15" font-weight="800" fill="#1a8f4c">+1,6</text></g>
 
-    <div class="mcard"><div class="mtop"><span class="mlabel">Soustředění <span style="color:#1a8f4c">&#9733;</span></span><span class="mdelta">+1,4</span></div>
-      <svg width="100%" height="46" viewBox="0 0 140 50"><polyline fill="none" stroke="#000" stroke-width="1.6" points="15,22.1 70,18.7 125,16.9"/><circle cx="15" cy="22.1" r="3" fill="#efebe7" stroke="#000"/><circle cx="70" cy="18.7" r="3" fill="#efebe7" stroke="#000"/><circle cx="125" cy="16.9" r="3.6" fill="#ff333d"/></svg>
-      <div class="mfoot">6,2 &rsaquo; 7,1 &rsaquo; 7,6</div></div>
+      <g font-family="Manrope"><text x="8" y="142" font-size="13" font-weight="700" fill="#111">Soustředění <tspan fill="#1a8f4c">&#9733;</tspan></text>
+        <line x1="334.5" y1="138" x2="436" y2="138" stroke="#cfcabf" stroke-width="4" stroke-linecap="round"/>
+        <circle cx="334.5" cy="138" r="5.5" fill="#efebe7" stroke="#999" stroke-width="1.5"/><circle cx="436" cy="138" r="6.5" fill="#ff333d"/>
+        <text x="334.5" y="126" font-size="11" fill="#999" text-anchor="middle">6,2</text><text x="436" y="126" font-size="12" font-weight="800" fill="#000" text-anchor="middle">7,6</text>
+        <text x="640" y="142" font-size="15" font-weight="800" fill="#1a8f4c">+1,4</text></g>
 
-    <div class="mcard"><div class="mtop"><span class="mlabel">Nálada a pohoda</span><span class="mdelta">+0,7</span></div>
-      <svg width="100%" height="46" viewBox="0 0 140 50"><polyline fill="none" stroke="#000" stroke-width="1.6" points="15,21.3 70,18.4 125,18.7"/><circle cx="15" cy="21.3" r="3" fill="#efebe7" stroke="#000"/><circle cx="70" cy="18.4" r="3" fill="#efebe7" stroke="#000"/><circle cx="125" cy="18.7" r="3.6" fill="#ff333d"/></svg>
-      <div class="mfoot">6,4 &rsaquo; 7,2 &rsaquo; 7,1</div></div>
+      <g font-family="Manrope"><text x="8" y="182" font-size="13" font-weight="700" fill="#111">Nálada a pohoda</text>
+        <line x1="349" y1="178" x2="399.8" y2="178" stroke="#cfcabf" stroke-width="4" stroke-linecap="round"/>
+        <circle cx="349" cy="178" r="5.5" fill="#efebe7" stroke="#999" stroke-width="1.5"/><circle cx="399.8" cy="178" r="6.5" fill="#ff333d"/>
+        <text x="349" y="166" font-size="11" fill="#999" text-anchor="middle">6,4</text><text x="399.8" y="166" font-size="12" font-weight="800" fill="#000" text-anchor="middle">7,1</text>
+        <text x="640" y="182" font-size="15" font-weight="800" fill="#555">+0,7</text></g>
 
-    <div class="mcard"><div class="mtop"><span class="mlabel">Kvalita spánku</span><span class="mdelta">+0,6</span></div>
-      <svg width="100%" height="46" viewBox="0 0 140 50"><polyline fill="none" stroke="#000" stroke-width="1.6" points="15,20.6 70,19.8 125,18.4"/><circle cx="15" cy="20.6" r="3" fill="#efebe7" stroke="#000"/><circle cx="70" cy="19.8" r="3" fill="#efebe7" stroke="#000"/><circle cx="125" cy="18.4" r="3.6" fill="#ff333d"/></svg>
-      <div class="mfoot">6,6 &rsaquo; 6,8 &rsaquo; 7,2</div></div>
+      <g font-family="Manrope"><text x="8" y="222" font-size="13" font-weight="700" fill="#111">Kvalita spánku</text>
+        <line x1="363.5" y1="218" x2="407" y2="218" stroke="#cfcabf" stroke-width="4" stroke-linecap="round"/>
+        <circle cx="363.5" cy="218" r="5.5" fill="#efebe7" stroke="#999" stroke-width="1.5"/><circle cx="407" cy="218" r="6.5" fill="#ff333d"/>
+        <text x="363.5" y="206" font-size="11" fill="#999" text-anchor="middle">6,6</text><text x="407" y="206" font-size="12" font-weight="800" fill="#000" text-anchor="middle">7,2</text>
+        <text x="640" y="222" font-size="15" font-weight="800" fill="#555">+0,6</text></g>
 
-    <div class="mcard"><div class="mtop"><span class="mlabel">Zvládání stresu</span><span class="mdelta">+0,5</span></div>
-      <svg width="100%" height="46" viewBox="0 0 140 50"><polyline fill="none" stroke="#000" stroke-width="1.6" points="15,19.1 70,17.6 125,17.3"/><circle cx="15" cy="19.1" r="3" fill="#efebe7" stroke="#000"/><circle cx="70" cy="17.6" r="3" fill="#efebe7" stroke="#000"/><circle cx="125" cy="17.3" r="3.6" fill="#ff333d"/></svg>
-      <div class="mfoot">7,0 &rsaquo; 7,4 &rsaquo; 7,5</div></div>
-
+      <g font-family="Manrope"><text x="8" y="262" font-size="13" font-weight="700" fill="#111">Zvládání stresu</text>
+        <line x1="392.5" y1="258" x2="428.8" y2="258" stroke="#cfcabf" stroke-width="4" stroke-linecap="round"/>
+        <circle cx="392.5" cy="258" r="5.5" fill="#efebe7" stroke="#999" stroke-width="1.5"/><circle cx="428.8" cy="258" r="6.5" fill="#ff333d"/>
+        <text x="392.5" y="246" font-size="11" fill="#999" text-anchor="middle">7,0</text><text x="428.8" y="246" font-size="12" font-weight="800" fill="#000" text-anchor="middle">7,5</text>
+        <text x="640" y="262" font-size="15" font-weight="800" fill="#555">+0,5</text></g>
+    </svg>
   </div>
-  <div class="note"><span style="color:#1a8f4c">&#9733;</span> U <strong>mentální jasnosti, soustředění a energie</strong> je zlepšení statisticky významné (párový t-test den 0 vs. den 30, p &lt; 0,05, velký efekt). Nálada, spánek a stres se u této skupiny posunuly méně — a právě u nich je 30 dní pravděpodobně příliš krátká doba.</div>
+  <div class="note"><span style="color:#1a8f4c">&#9733;</span> U <strong>mentální jasnosti, soustředění a energie</strong> je zlepšení statisticky významné (párový t-test den 0 vs. den 30, p &lt; 0,05, velký efekt). Nálada, spánek a stres se posunuly méně — a právě u nich je 30 dní pravděpodobně příliš krátká doba.</div>
 
   <hr class="divider">
 
@@ -186,8 +209,8 @@ body{font-family:'Manrope',sans-serif;background:var(--cream);color:var(--text);
   <div class="fb">
     <div class="h">Rozpustnost — zelený zákal na dně</div>
     <div class="r"><div class="tagx">Zaznělo</div><div class="body"><i>„Prášek se úplně nerozpustí, na dně zůstává zelená složka."</i></div></div>
-    <div class="r"><div class="tagx">Proč</div><div class="body">Jsou to přírodní rostlinné extrakty bez umělých rozpouštědel — v tvrdé nebo studené vodě se rozpouští hůř.</div></div>
-    <div class="r fix"><div class="tagx">Jak na to</div><div class="body">Rozmíchat ve větším množství <strong>vlažné</strong> vody nebo protřepat v šejkru; usazeninu na konci stačí znovu zalít a dopít.</div></div>
+    <div class="r"><div class="tagx">Proč</div><div class="body">Jsou to přírodní rostlinné extrakty bez umělých rozpouštědel — v tvrdé nebo studené vodě se rozpouští hůř. Axolt je navíc určený <strong>vypít hned po namíchání</strong>, ne pomalu popíjet.</div></div>
+    <div class="r fix"><div class="tagx">Jak na to</div><div class="body">Rozmíchej ve <strong>vlažné</strong> vodě (ideálně v šejkru) a vypij hned. Když ho popíjíš déle, část se přirozeně usadí — stačí znovu zamíchat. A hlavně: v <strong>nové receptuře, na které pracujeme, rozpustnost vylepšujeme</strong>.</div></div>
   </div>
 
   <hr class="divider">
